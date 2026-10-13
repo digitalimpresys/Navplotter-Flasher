@@ -1,0 +1,16 @@
+{
+ "name": "NavPlotter ESP32-32E",
+ "version": "0.7.0",
+ "new_install_prompt_erase": true,
+ "builds": [
+  {
+   "chipFamily": "ESP32",
+   "parts": [
+    {
+     "path": "esp32-32e.bin",
+     "offset": 0
+    }
+   ]
+  }
+ ]
+}

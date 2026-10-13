@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NavPlotter installer</title>
+<script type="module" src="https://unpkg.com/esp-web-tools@10/dist/web/install-button.js?module"></script>
+<style>
+:root{--bg:#0b1d33;--panel:#12294a;--line:#27456f;--text:#eef3fa;--dim:#9db0c9;--accent:#3da5ff;--warn:#f2c200}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.wrap{max-width:860px;margin:0 auto;padding:20px 16px 60px}
+header{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+h1{font-size:28px;margin:8px 0;flex:1}
+h2{font-size:20px;margin:28px 0 10px}
+p{margin:8px 0}
+.dim{color:var(--dim)}
+.lang button{background:none;border:1px solid var(--line);color:var(--text);border-radius:8px;padding:6px 12px;font-size:15px;cursor:pointer}
+.lang button.on{background:var(--accent);color:#04121f;border-color:var(--accent);font-weight:700}
+.note{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--warn);border-radius:10px;padding:12px 14px;margin:14px 0}
+ol{padding-left:22px;margin:8px 0}
+li{margin:4px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:8px}
+.card h3{margin:0;font-size:18px}
+.card .what{color:var(--dim);font-size:15px;flex:1}
+.card .ver{font-size:13px;color:var(--dim)}
+.btn,esp-web-install-button button{background:var(--accent);color:#04121f;border:0;border-radius:9px;padding:11px 14px;font-size:16px;font-weight:700;cursor:pointer;text-decoration:none;display:inline-block;text-align:center}
+esp-web-install-button{display:block}
+esp-web-install-button button{width:100%}
+.nosupport{color:var(--warn);font-size:15px}
+code{background:#06111f;border-radius:5px;padding:1px 5px;font-size:15px}
+footer{margin-top:36px;color:var(--dim);font-size:14px}
+a{color:var(--accent)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>NavPlotter</h1>
+    <div class="lang"><button data-l="en">English</button> <button data-l="it">Italiano</button></div>
+  </header>
+  <p data-i18n="intro"></p>
+  <div class="note"><b data-i18n="needTitle"></b>
+    <ol>
+      <li data-i18n="need1"></li>
+      <li data-i18n="need2"></li>
+      <li data-i18n="need3"></li>
+    </ol>
+  </div>
+
+  <h2 data-i18n="howTitle"></h2>
+  <ol>
+    <li data-i18n="how1"></li>
+    <li data-i18n="how2"></li>
+    <li data-i18n="how3"></li>
+    <li data-i18n="how4"></li>
+  </ol>
+  <p class="dim" data-i18n="howNote"></p>
+
+  <h2 data-i18n="boardsTitle"></h2>
+  <div class="grid" id="boards"></div>
+
+  <h2 data-i18n="picoTitle"></h2>
+  <div class="card">
+    <h3>Raspberry Pi Pico W</h3>
+    <div class="what" data-i18n="picoWhat"></div>
+    <ol>
+      <li data-i18n="pico1"></li>
+      <li data-i18n="pico2"></li>
+      <li data-i18n="pico3"></li>
+    </ol>
+    <div class="ver" id="ver-pico-w"></div>
+    <a class="btn" href="firmware/pico-w.uf2" download data-i18n="picoGet"></a>
+  </div>
+
+  <h2 data-i18n="afterTitle"></h2>
+  <ol>
+    <li data-i18n="after1"></li>
+    <li data-i18n="after2"></li>
+    <li data-i18n="after3"></li>
+  </ol>
+
+  <footer>
+    <p data-i18n="foot1"></p>
+    <p data-i18n="foot2"></p>
+  </footer>
+</div>
+<script>
+'use strict';
+// English is the reference language, Italian the first translation
+const I18N = {
+en: {
+  intro: 'Install the NavPlotter firmware on your board straight from this page: no program to install, no code to compile.',
+  needTitle: 'What you need',
+  need1: 'A computer with Chrome or Edge. It does not work on iPhone, iPad or Safari.',
+  need2: 'A USB cable that carries data (some cables only charge).',
+  need3: 'The board, and knowing which one it is: see the pictures of the boards in each project.',
+  howTitle: 'How to install',
+  how1: 'Plug the board into the computer.',
+  how2: 'Press the Install button of YOUR board, below.',
+  how3: 'Choose the serial port in the list the browser shows, then Connect.',
+  how4: 'Confirm, and wait about a minute. Do not unplug the board.',
+  howNote: 'If the board is not in the list, the computer may need the driver of its USB chip (CP210x for the Heltec boards, CH340 for the ESP32-32E). If the installation does not start on a T-Deck, hold its trackball pressed while plugging the cable in.',
+  boardsTitle: 'Choose your board',
+  install: 'Install',
+  unsupported: 'This browser cannot install: use Chrome or Edge on a computer.',
+  version: 'version',
+  b_tdeck: 'Plotter with screen and keyboard: charts, GPS, radio, alarms, messages. LilyGO T-Deck Plus.',
+  b_h3n: 'Node for a boat, used from a phone: map, alarms, chat. Heltec WiFi LoRa 32 V3 with a GPS module.',
+  b_h2n: 'The same node on the older Heltec WiFi LoRa 32 V2 with a GPS module.',
+  b_h3s: 'Beacon for buoys and objects: sleeps and sends its position now and then. Heltec V3 with a GPS module.',
+  b_h2s: 'The same beacon on the older Heltec WiFi LoRa 32 V2 with a GPS module.',
+  b_32e: 'Plotter with a 2.8" touch screen, GPS module and RFM95W radio.',
+  b_ws: 'A 4" display that shows the data of a NavPlotter node over WiFi. Waveshare ESP32-S3-Touch-LCD-4.',
+  picoTitle: 'Raspberry Pi Pico W',
+  picoWhat: 'Node for a boat, used from a phone. This board is installed in another way: by copying a file.',
+  pico1: 'Hold the white BOOTSEL button pressed while you plug the cable in. A drive called RPI-RP2 appears on the computer.',
+  pico2: 'Download the file with the button below.',
+  pico3: 'Drag the file onto the RPI-RP2 drive. The board restarts by itself.',
+  picoGet: 'Download the file for the Pico W',
+  afterTitle: 'After the installation',
+  after1: 'The board creates a WiFi network called NavPlotter- followed by its name. The password is navplotter.',
+  after2: 'Join it with the phone and open http://192.168.4.1',
+  after3: 'In Setup give the board its name. The chart tiles go on the SD card, in a folder called tiles.',
+  foot1: 'Not for navigation, and not a safety system. The charts are drawn from OpenStreetMap data, which has no depths.',
+  foot2: 'Installing replaces the program on the board. You are asked whether to erase its settings too.'
+},
+it: {
+  intro: 'Installa il programma NavPlotter sulla tua scheda direttamente da questa pagina: nessun programma da installare, nessun codice da compilare.',
+  needTitle: 'Cosa serve',
+  need1: 'Un computer con Chrome o Edge. Non funziona su iPhone, iPad o Safari.',
+  need2: 'Un cavo USB che porti i dati (alcuni cavi servono solo a ricaricare).',
+  need3: 'La scheda, e sapere quale è: guarda le foto delle schede in ciascun progetto.',
+  howTitle: 'Come si installa',
+  how1: 'Collega la scheda al computer.',
+  how2: 'Premi il tasto Installa della TUA scheda, qui sotto.',
+  how3: 'Scegli la porta seriale nell\'elenco che il browser mostra, poi Connetti.',
+  how4: 'Conferma e aspetta circa un minuto. Non scollegare la scheda.',
+  howNote: 'Se la scheda non compare nell\'elenco, al computer può servire il driver del suo chip USB (CP210x per le Heltec, CH340 per la ESP32-32E). Se su un T-Deck l\'installazione non parte, tieni premuta la trackball mentre colleghi il cavo.',
+  boardsTitle: 'Scegli la tua scheda',
+  install: 'Installa',
+  unsupported: 'Questo browser non può installare: usa Chrome o Edge su un computer.',
+  version: 'versione',
+  b_tdeck: 'Plotter con schermo e tastiera: carte, GPS, radio, allarmi, messaggi. LilyGO T-Deck Plus.',
+  b_h3n: 'Nodo per una barca, da usare con il telefono: mappa, allarmi, chat. Heltec WiFi LoRa 32 V3 con modulo GPS.',
+  b_h2n: 'Lo stesso nodo sulla Heltec WiFi LoRa 32 V2, più vecchia, con modulo GPS.',
+  b_h3s: 'Segnalatore per boe e oggetti: dorme e ogni tanto trasmette la sua posizione. Heltec V3 con modulo GPS.',
+  b_h2s: 'Lo stesso segnalatore sulla Heltec WiFi LoRa 32 V2, più vecchia, con modulo GPS.',
+  b_32e: 'Plotter con schermo touch da 2,8", modulo GPS e radio RFM95W.',
+  b_ws: 'Schermo da 4" che mostra via WiFi i dati di un nodo NavPlotter. Waveshare ESP32-S3-Touch-LCD-4.',
+  picoTitle: 'Raspberry Pi Pico W',
+  picoWhat: 'Nodo per una barca, da usare con il telefono. Questa scheda si installa in un altro modo: copiando un file.',
+  pico1: 'Tieni premuto il tasto bianco BOOTSEL mentre colleghi il cavo. Sul computer compare un disco chiamato RPI-RP2.',
+  pico2: 'Scarica il file con il tasto qui sotto.',
+  pico3: 'Trascina il file sul disco RPI-RP2. La scheda riparte da sola.',
+  picoGet: 'Scarica il file per il Pico W',
+  afterTitle: 'Dopo l\'installazione',
+  after1: 'La scheda crea una rete WiFi chiamata NavPlotter- seguita dal suo nome. La password è navplotter.',
+  after2: 'Collegati con il telefono e apri http://192.168.4.1',
+  after3: 'In Impostazioni dai il nome alla scheda. Le carte vanno sulla scheda SD, in una cartella chiamata tiles.',
+  foot1: 'Non per la navigazione, e non è un sistema di sicurezza. Le carte sono disegnate dai dati OpenStreetMap, che non hanno le profondità.',
+  foot2: 'L\'installazione sostituisce il programma sulla scheda. Ti viene chiesto se cancellare anche le sue impostazioni.'
+}};
+const BOARDS = [
+  ['tdeck-plus', 'LilyGO T-Deck Plus', 'b_tdeck'],
+  ['heltec-v3-node', 'Heltec V3 — node', 'b_h3n'],
+  ['heltec-v3-segnalatore', 'Heltec V3 — Segnalatore', 'b_h3s'],
+  ['heltec-v2-node', 'Heltec V2 — node', 'b_h2n'],
+  ['heltec-v2-segnalatore', 'Heltec V2 — Segnalatore', 'b_h2s'],
+  ['esp32-32e', 'ESP32-32E 2.8"', 'b_32e'],
+  ['waveshare-lcd4', 'Waveshare LCD 4"', 'b_ws']
+];
+let lang = (navigator.language || 'en').startsWith('it') ? 'it' : 'en', versions = {};
+try { lang = localStorage.getItem('lang') || lang; } catch(e) {}
+const t = k => I18N[lang][k] || I18N.en[k] || k;
+function render() {
+  document.documentElement.lang = lang;
+  document.querySelectorAll('[data-i18n]').forEach(e => { e.textContent = t(e.dataset.i18n); });
+  document.querySelectorAll('.lang button').forEach(b => b.classList.toggle('on', b.dataset.l === lang));
+  document.getElementById('boards').innerHTML = BOARDS.map(([id, name, what]) =>
+    '<div class="card"><h3>' + name + '</h3><div class="what">' + t(what) + '</div>' +
+    '<div class="ver">' + (versions[id] ? t('version') + ' ' + versions[id] : '') + '</div>' +
+    '<esp-web-install-button manifest="firmware/' + id + '.json">' +
+    '<button slot="activate">' + t('install') + '</button>' +
+    '<span slot="unsupported" class="nosupport">' + t('unsupported') + '</span>' +
+    '<span slot="not-allowed" class="nosupport">' + t('unsupported') + '</span>' +
+    '</esp-web-install-button></div>').join('');
+  document.getElementById('ver-pico-w').textContent = versions['pico-w'] ? t('version') + ' ' + versions['pico-w'] : '';
+}
+document.querySelectorAll('.lang button').forEach(b => { b.onclick = () => { lang = b.dataset.l; try { localStorage.setItem('lang', lang); } catch(e) {} render(); }; });
+fetch('firmware/versions.json').then(r => r.json()).then(j => { j.forEach(v => { versions[v.id] = v.version; }); render(); }).catch(render);
+render();
+</script>
+</body>
+</html>

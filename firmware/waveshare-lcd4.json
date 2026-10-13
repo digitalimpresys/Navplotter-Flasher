@@ -1,0 +1,16 @@
+{
+ "name": "NavPlotter display, Waveshare LCD 4",
+ "version": "0.3.0",
+ "new_install_prompt_erase": true,
+ "builds": [
+  {
+   "chipFamily": "ESP32-S3",
+   "parts": [
+    {
+     "path": "waveshare-lcd4.bin",
+     "offset": 0
+    }
+   ]
+  }
+ ]
+}

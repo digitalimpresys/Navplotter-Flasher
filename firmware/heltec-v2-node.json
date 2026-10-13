@@ -1,0 +1,16 @@
+{
+ "name": "NavPlotter node, Heltec V2",
+ "version": "0.7.2",
+ "new_install_prompt_erase": true,
+ "builds": [
+  {
+   "chipFamily": "ESP32",
+   "parts": [
+    {
+     "path": "heltec-v2-node.bin",
+     "offset": 0
+    }
+   ]
+  }
+ ]
+}
