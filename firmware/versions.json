@@ -3,19 +3,19 @@
   "id": "tdeck-plus",
   "name": "NavPlotter T-Deck Plus",
   "version": "2026-10-13",
-  "size": 1111424
+  "size": 1124352
  },
  {
   "id": "heltec-v3-node",
   "name": "NavPlotter node, Heltec V3",
-  "version": "0.8.0",
-  "size": 1051088
+  "version": "0.9.0",
+  "size": 1065200
  },
  {
   "id": "heltec-v2-node",
   "name": "NavPlotter node, Heltec V2",
-  "version": "0.8.0",
-  "size": 1047520
+  "version": "0.9.0",
+  "size": 1075008
  },
  {
   "id": "heltec-v3-segnalatore",
@@ -33,7 +33,7 @@
   "id": "esp32-32e",
   "name": "NavPlotter ESP32-32E",
   "version": "0.7.0",
-  "size": 1130560
+  "size": 1132320
  },
  {
   "id": "waveshare-lcd4",
@@ -45,6 +45,6 @@
   "id": "pico-w",
   "name": "NavPlotter node, Raspberry Pi Pico W",
   "version": "0.4.1",
-  "size": 1053696
+  "size": 1057280
  }
 ]
