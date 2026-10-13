@@ -3,37 +3,37 @@
   "id": "tdeck-plus",
   "name": "NavPlotter T-Deck Plus",
   "version": "2026-10-13",
-  "size": 1111344
+  "size": 1111424
  },
  {
   "id": "heltec-v3-node",
   "name": "NavPlotter node, Heltec V3",
-  "version": "0.7.2",
-  "size": 1049104
+  "version": "0.8.0",
+  "size": 1051088
  },
  {
   "id": "heltec-v2-node",
   "name": "NavPlotter node, Heltec V2",
-  "version": "0.7.2",
-  "size": 1046288
+  "version": "0.8.0",
+  "size": 1047520
  },
  {
   "id": "heltec-v3-segnalatore",
   "name": "Segnalatore, Heltec V3",
-  "version": "0.6.2",
-  "size": 1040432
+  "version": "0.7.0",
+  "size": 1042352
  },
  {
   "id": "heltec-v2-segnalatore",
   "name": "Segnalatore, Heltec V2",
-  "version": "0.6.2",
-  "size": 1037328
+  "version": "0.7.0",
+  "size": 1038448
  },
  {
   "id": "esp32-32e",
   "name": "NavPlotter ESP32-32E",
   "version": "0.7.0",
-  "size": 1129712
+  "size": 1130560
  },
  {
   "id": "waveshare-lcd4",
