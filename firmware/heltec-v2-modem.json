@@ -1,0 +1,16 @@
+{
+ "name": "NavPlotter Linux modem, Heltec V2",
+ "version": "0.1.0",
+ "new_install_prompt_erase": true,
+ "builds": [
+  {
+   "chipFamily": "ESP32",
+   "parts": [
+    {
+     "path": "heltec-v2-modem.bin",
+     "offset": 0
+    }
+   ]
+  }
+ ]
+}
