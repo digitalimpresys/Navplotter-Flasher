@@ -24,6 +24,7 @@ BOARDS = [
     ("heltec-v2-node", "NavPlotter node, Heltec V2", "plotter-tdeck/navplotter-heltec", "heltec_wifi_lora_32_V2", "ESP32", "esp32"),
     ("heltec-v3-segnalatore", "Segnalatore, Heltec V3", "navplotter-segnalatore", "heltec_wifi_lora_32_V3", "ESP32-S3", "esp32s3"),
     ("heltec-v2-segnalatore", "Segnalatore, Heltec V2", "navplotter-segnalatore", "heltec_wifi_lora_32_V2", "ESP32", "esp32"),
+    ("heltec-v2-modem", "NavPlotter Linux modem, Heltec V2", "navplotter-linux/firmware/heltec-modem", "heltec_wifi_lora_32_V2", "ESP32", "esp32"),
     ("esp32-32e", "NavPlotter ESP32-32E", "navplotter-esp32-32e", "esp32-32e", "ESP32", "esp32"),
     ("waveshare-lcd4", "NavPlotter display, Waveshare LCD 4", "navplotter-waveshare-lcd4", "waveshare-lcd4", "ESP32-S3", "esp32s3"),
 ]
