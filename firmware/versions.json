@@ -30,6 +30,12 @@
   "size": 1038448
  },
  {
+  "id": "heltec-v4-modem",
+  "name": "NavPlotter Linux modem, Heltec V4",
+  "version": "0.2.0",
+  "size": 380096
+ },
+ {
   "id": "heltec-v2-modem",
   "name": "NavPlotter Linux modem, Heltec V2",
   "version": "0.1.0",
