@@ -8,8 +8,8 @@
  {
   "id": "heltec-v3-node",
   "name": "NavPlotter node, Heltec V3",
-  "version": "0.9.0",
-  "size": 1065200
+  "version": "0.9.0 + MOB e meteo",
+  "size": 1096368
  },
  {
   "id": "heltec-v2-node",
