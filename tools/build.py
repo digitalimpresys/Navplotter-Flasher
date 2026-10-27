@@ -26,6 +26,7 @@ BOARDS = [
     ("heltec-v2-segnalatore", "Segnalatore, Heltec V2", "navplotter-segnalatore", "heltec_wifi_lora_32_V2", "ESP32", "esp32"),
     ("heltec-v4-modem", "NavPlotter Linux modem, Heltec V4", "navplotter-linux/firmware/heltec-modem", "heltec_wifi_lora_32_V4", "ESP32-S3", "esp32s3"),
     ("heltec-v2-modem", "NavPlotter Linux modem, Heltec V2", "navplotter-linux/firmware/heltec-modem", "heltec_wifi_lora_32_V2", "ESP32", "esp32"),
+    ("kc868-a16", "NavPlotter node, KinCony KC868-A16", "navplotter-kc868-a16", "kc868-a16", "ESP32", "esp32"),
     ("esp32-32e", "NavPlotter ESP32-32E", "navplotter-esp32-32e", "esp32-32e", "ESP32", "esp32"),
     ("waveshare-lcd4", "NavPlotter display, Waveshare LCD 4", "navplotter-waveshare-lcd4", "waveshare-lcd4", "ESP32-S3", "esp32s3"),
 ]
