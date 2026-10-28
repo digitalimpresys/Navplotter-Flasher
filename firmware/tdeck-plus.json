@@ -1,6 +1,6 @@
 {
  "name": "NavPlotter T-Deck Plus",
- "version": "2026-10-13",
+ "version": "2026-10-28 + MOB e meteo",
  "new_install_prompt_erase": true,
  "builds": [
   {
