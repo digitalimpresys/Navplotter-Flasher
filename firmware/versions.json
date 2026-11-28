@@ -1,9 +1,9 @@
 [
  {
   "id": "tdeck-plus",
-  "name": "NavPlotter T-Deck Plus",
-  "version": "2026-11-12 + guardia all'ancora",
-  "size": 1199280
+  "name": "Navigate T-Deck Plus",
+  "version": "2026-11-28 Navigate: giroscopio ESP-NOW facoltativo, stima senza GPS, scatola nera",
+  "size": 1240944
  },
  {
   "id": "heltec-v3-node",
