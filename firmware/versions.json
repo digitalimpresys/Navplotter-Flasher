@@ -7,15 +7,15 @@
  },
  {
   "id": "heltec-v3-node",
-  "name": "NavPlotter node, Heltec V3",
-  "version": "0.9.0 + MOB e meteo",
-  "size": 1096368
+  "name": "Navigate node, Heltec V3",
+  "version": "0.12.0 Navigate: giroscopio ESP-NOW facoltativo, ancora, stima senza GPS, scatola nera",
+  "size": 1146672
  },
  {
   "id": "heltec-v2-node",
-  "name": "NavPlotter node, Heltec V2",
-  "version": "0.9.0",
-  "size": 1075008
+  "name": "Navigate node, Heltec V2",
+  "version": "0.12.0 Navigate: giroscopio ESP-NOW facoltativo, ancora, stima senza GPS, scatola nera",
+  "size": 1142048
  },
  {
   "id": "heltec-v3-segnalatore",
