@@ -1,6 +1,6 @@
 {
  "name": "Navigate T-Deck Plus",
- "version": "2026-11-28 Navigate: giroscopio ESP-NOW facoltativo, stima senza GPS, scatola nera",
+ "version": "2026-11-28b Navigate: giroscopio ESP-NOW facoltativo, stima senza GPS, scatola nera",
  "new_install_prompt_erase": true,
  "builds": [
   {
