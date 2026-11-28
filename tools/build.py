@@ -19,9 +19,9 @@ BOOT_APP0 = os.path.expanduser("~/.platformio/packages/framework-arduinoespressi
 
 # id, name shown on the page, project folder, PlatformIO environment, chip family, chip name for esptool
 BOARDS = [
-    ("tdeck-plus", "NavPlotter T-Deck Plus", "plotter-tdeck", "T-Deck", "ESP32-S3", "esp32s3"),
-    ("heltec-v3-node", "NavPlotter node, Heltec V3", "plotter-tdeck/navplotter-heltec", "heltec_wifi_lora_32_V3", "ESP32-S3", "esp32s3"),
-    ("heltec-v2-node", "NavPlotter node, Heltec V2", "plotter-tdeck/navplotter-heltec", "heltec_wifi_lora_32_V2", "ESP32", "esp32"),
+    ("tdeck-plus", "Navigate T-Deck Plus", "plotter-tdeck", "T-Deck", "ESP32-S3", "esp32s3"),
+    ("heltec-v3-node", "Navigate node, Heltec V3", "plotter-tdeck/navplotter-heltec", "heltec_wifi_lora_32_V3", "ESP32-S3", "esp32s3"),
+    ("heltec-v2-node", "Navigate node, Heltec V2", "plotter-tdeck/navplotter-heltec", "heltec_wifi_lora_32_V2", "ESP32", "esp32"),
     ("heltec-v3-segnalatore", "Segnalatore, Heltec V3", "navplotter-segnalatore", "heltec_wifi_lora_32_V3", "ESP32-S3", "esp32s3"),
     ("heltec-v2-segnalatore", "Segnalatore, Heltec V2", "navplotter-segnalatore", "heltec_wifi_lora_32_V2", "ESP32", "esp32"),
     ("heltec-v4-modem", "NavPlotter Linux modem, Heltec V4", "navplotter-linux/firmware/heltec-modem", "heltec_wifi_lora_32_V4", "ESP32-S3", "esp32s3"),
